@@ -1,0 +1,15 @@
+Flask
+Flask-Cors
+gunicorn
+joblib
+mlflow
+mysql-connector-python
+numpy
+pandas
+pyYAML
+python-box==6.0.2
+python-dotenv 
+pymysql
+scikit-learn
+seaborn
+-e .

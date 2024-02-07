@@ -1,0 +1,6 @@
+outs:
+- md5: de6339e3cc8135abf72291609ebc200d
+  size: 204670806
+  hash: md5
+  path: cleaned_transactions.csv
+  

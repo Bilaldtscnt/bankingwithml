@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML Banking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: skyblue;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .login {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mb-3 {
+            margin-bottom: 15px;
+        }
+
+        .form-label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        select.form-control {
+            height: 34px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 20px;
+            color: #333;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Check if the page is refreshed
+            if (performance.navigation.type === 1) {
+                // Page is refreshed, hide the message
+                document.getElementById('predictionMessage').style.display = 'none';
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="login">
+        <h1>ML Banking</h1>
+        
+        <form method="post" action="/predictdata">
+            <h1>
+                <legend>Bank Fraud Transaction Prediction</legend>
+            </h1>
+
+            <div class="mb-3">
+                <label class="form-label">TRANSACTION_ID</label>
+                <input class="form-control" type="number" name="TRANSACTION_ID" placeholder="Enter TRANSACTION_ID" min='0' max='100000000' />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">TX_DATETIME</label>
+                <input class="form-control" type="text" name="TX_DATETIME" placeholder="Enter TX_DATETIME" min='0' max='100000000' />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">CUSTOMER_ID</label>
+                <input class="form-control" type="number" name="CUSTOMER_ID" placeholder="Enter CUSTOMER_ID" min='0' max='100000000' />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">TERMINAL_ID</label>
+                <input class="form-control" type="number" name="TERMINAL_ID" placeholder="Enter TERMINAL_ID" min='0' max='100000000' />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">TX_AMOUNT</label>
+                <input class="form-control" type="float" name="TX_AMOUNT" placeholder="Enter TX_AMOUNT" min='0' max='100000000' />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">TX_TIME_SECONDS</label>
+                <input class="form-control" type="number" name="TX_TIME_SECONDS" placeholder="Enter TX_TIME_SECONDS" min='0' max='100000000' />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">TX_TIME_DAYS</label>
+                <input class="form-control" type="number" name="TX_TIME_DAYS" placeholder="Enter TX_TIME_DAYS" min='0' max='100000000' />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">TX_FRAUD_SCENARIO</label>
+                <select class="form-control" name="TX_FRAUD_SCENARIO" placeholder="Enter TX_FRAUD_SCENARIO" required>
+                    <option class="placeholder" selected disabled value="">Select TX_FRAUD_SCENARIO</option>
+                    <option value="zero">0</option>
+                    <option value="one">1</option>
+                    <option value="two">2</option>
+                    <option value="three">3</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <input class="btn btn-primary" type="submit" value="Predict your FRAUD Transaction" required />
+            </div>
+        </form>
+
+        <h2>
+            {% if results is defined %}
+                The transaction is predicted as ({{ results }}) {% if results == 1 %}FRAUDULENT{% else %}NON-FRAUDULENT{% endif %}.
+            {% endif %}
+        </h2>
+    </div>
+</body>
+</html>
