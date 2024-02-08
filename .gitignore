@@ -169,5 +169,6 @@ __MACOSX/
 
 artifacts/cleaned_transactions.csv
 
+.DS_Store
 
 
