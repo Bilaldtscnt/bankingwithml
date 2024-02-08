@@ -21,7 +21,7 @@ class DataIngestion:
     def initiate_data_ingestion(self):
         try:
             #df=read_sql_data()
-            df=pd.read_csv(os.path.join('/Users/mac/Desktop/mlbanking/notebook/data','cleaned_transactions.csv'))
+            df=pd.read_csv(os.path.join('/Users/mac/Desktop/bankingwithml/notebook/data','cleaned_transactions.csv'))
             logging.info('Reading from mysql database')
             
         
