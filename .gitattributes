@@ -1,3 +1,0 @@
-#notebook/data/cleaned_transactions.csv filter=lfs diff=lfs merge=lfs -text
-#artifacts/train.csv filter=lfs diff=lfs merge=lfs -text
-#notebook/raw.csv filter=lfs diff=lfs merge=lfs -text
